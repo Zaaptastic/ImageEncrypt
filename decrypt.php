@@ -50,6 +50,11 @@
 					$extractedBin .= "1";
 					$escape = 7;
 				}
+
+
+				if ($x >7 && substr($extractedBin,0,7) == "1111111"){
+					return "Invalid base image provided - Please select proper base image";
+				}
 			}
 
 			$msglen = toStr($extractedBin);
@@ -110,12 +115,14 @@
 	        echo "Sorry, there was an error uploading your file.";
 	    }
 	}
-	$baseImage = imagecreatefrompng("test.png");
+
+	$img = $_POST["baseImg"];
+	$baseImage = imagecreatefrompng("baseImages/$img");
 	$encryptedImage = imagecreatefrompng($target_file);
 	$plaintext = imageDecrypt($baseImage,$encryptedImage);
 ?>
 <?php
-	echo "Preview:<img src=",$target_file,"> <br>";
+	echo "<a href=",$target_file,"> Your uploaded image </a> <br>";
 ?>
 Decryption of image encrypted message: <?php echo "$plaintext"; ?> <br>
 <a href="home.php">Return home</a>

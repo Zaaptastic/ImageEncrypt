@@ -72,7 +72,8 @@
 
 Your message to encrypt is: <?php $msg = $_POST["msgEncrypt"]; echo $msg; ?><br>
 <?php 
-	$baseImage = imagecreatefrompng("test.png");
+	$img = $_POST["baseImg"];
+	$baseImage = imagecreatefrompng("baseImages/$img");
 	$newImage = imageEncrypt($baseImage,$msg);
 	imagepng($newImage,"images/encryptedimage.png");
 ?>
