@@ -1,10 +1,6 @@
 <?php
 echo "My first PHP script! <br>";
 
-$msg ="This is the message to be encoded 978";
-$char = array();
-$len = strlen($msg);
-
 /*Convert message to binary
 for($i = 0; $i < strlen($msg); $i++){
 	$bin[$i] = decbin(ord($msg[$i]));
@@ -15,12 +11,10 @@ for($i = 0; $i < strlen($msg); $i++){
 	$char[$i] = chr(bindec($bin[$i]));
 };
 printString($char,$len);*/
-$imagecopy = imagecreatefromjpeg("logo-black.jpg");
-imagejpeg($imagecopy,"images/newimage.jpg");
-echo "$msg <br>";
-$bin = toBin($msg);
-printArray($bin);
-toStr($bin);
+$imagecopy = imagecreatefromjpeg("images/encryptedImage.jpg");
+for ($x = 0; $x < imagesx($imagecopy); $x++){
+	var_dump(imagecolorat($imagecopy, $x, 0));
+}
 
 
 
