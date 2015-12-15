@@ -21,9 +21,9 @@
 			<input type="submit">
 		</form>
 
-		<form action="decrypt.php" method="post">
-			Message to Decrypt: <input type="text" name="msgDecrypt"><br>
-			<input type="submit">
+		<form action="decrypt.php" method="post" enctype="multipart/form-data">
+			Message to Decrypt: <input type="file" id="fileToUpload" name="fileToUpload"><br>
+			<input type="submit" value="Upload Image" name="submit">
 		</form>
 
 	</body>

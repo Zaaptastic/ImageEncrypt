@@ -65,8 +65,6 @@
 			}
 		}
 
-
-
 	?>
 
 </head>
@@ -78,7 +76,7 @@ Your message to encrypt is: <?php $msg = $_POST["msgEncrypt"]; echo $msg; ?><br>
 	$newImage = imageEncrypt($baseImage,$msg);
 	imagepng($newImage,"images/encryptedimage.png");
 ?>
-Binary encrypted message is: <?php echo toBin($msg); ?><br>
+<a href="images/encryptedimage.png" download="encryptedimage">Download your encrypted image</a>
 <a href="home.php">Return home</a>
 
 </body>
