@@ -72,7 +72,7 @@
 					</div><br>
 					<div class="form">
 						<form action="decrypt.php" method="post" enctype="multipart/form-data">
-							Image to Decrypt: <input type="file" id="fileToUpload" name="fileToUpload"><br>
+							Image to Decrypt:  <input type="file" id="fileToUpload" name="fileToUpload"><br>
 							Select base image: <select name="baseImg" id="decrypt-select">
 								<option selected disabled hidden value=''></option>
 								<option value="White_Background.png">Plain White Background</option>

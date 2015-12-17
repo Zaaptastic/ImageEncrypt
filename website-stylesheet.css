@@ -55,6 +55,11 @@ body{
 	color: white;
 }
 
+#select a{
+	text-decoration: none;
+	color: white;
+}
+
 #select div{
 	display: inline-block;
 	padding: 10px 20px;
@@ -104,6 +109,23 @@ body{
 }
 
 
+#encrypt-select,#decrypt-select{
+	margin: 20px;
+}
+
+#results{
+	margin: 0 10%;
+	text-align: center;
+}
+
+pre{
+	text-align: left;
+	background-color: #3366cc;
+	color:white;
+	padding: 20px 50px;
+	font-family: arial;
+	display:inline-block;
+}
 
 #footer{
 	background: #3366cc;

@@ -85,51 +85,75 @@
 		}
 
 	?>
-
+	<title>Image Based Encryption</title>
+	<link rel="stylesheet" type="text/css" href="website-stylesheet.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>				<script src="/js/ajaxupload.js" type="text/javascript"></script>
+	<script src="website-scripts.js"></script>
 </head>
 <body>
 
-<?php 
-	$target_dir = "uploads/";
-	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-	$uploadOk = 1;
-	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-	// Check if image file is a actual image or fake image
-	if(isset($_POST["submit"])) {
-	    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-	    if($check !== false) {
-	        //echo "File is an image - " . $check["mime"] . ".";
-	        $uploadOk = 1;
-	    } else {
-	        echo "File is not an image.";
-	        $uploadOk = 0;
-	    }
-	}
-	if($imageFileType != "png") {
-    	echo "Sorry, only PNG files are allowed.";
-    	$uploadOk = 0;
-	}
-	if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-	// if everything is ok, try to upload file
-	} else {
-	    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-	        //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-	    } else {
-	        echo "Sorry, there was an error uploading your file.";
-	    }
-	}
+	<div id="header">
+			<div id="banner">Image Encrypt</div>
 
-	$img = $_POST["baseImg"];
-	$baseImage = imagecreatefrompng("baseImages/$img");
-	$encryptedImage = imagecreatefrompng($target_file);
-	$plaintext = imageDecrypt($baseImage,$encryptedImage);
-?>
-<?php
-	echo "<a href=",$target_file,"> Your uploaded image </a> <br>";
-?>
-Decryption of image encrypted message: <br><pre><?php echo "$plaintext"; ?> </pre><br>
-<a href="home.php">Return home</a>
+			<div id="menu">
+				<ul>
+					<a href="home.php"><li>Home</li></a>
+					<a href="about.html"><li>About</li></a>
+					<a href="contact.html"><li>Contact</li></a>
+				</ul>
+			</div>
+	</div>
+
+	<div id="body">
+
+		<?php 
+			$target_dir = "uploads/";
+			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+			$uploadOk = 1;
+			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+			// Check if image file is a actual image or fake image
+			if(isset($_POST["submit"])) {
+			    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+			    if($check !== false) {
+			        //echo "File is an image - " . $check["mime"] . ".";
+			        $uploadOk = 1;
+			    } else {
+			        echo "File is not an image.";
+			        $uploadOk = 0;
+			    }
+			}
+			if($imageFileType != "png") {
+		    	echo "Sorry, only PNG files are allowed.";
+		    	$uploadOk = 0;
+			}
+			if ($uploadOk == 0) {
+		    echo "Sorry, your file was not uploaded.";
+			// if everything is ok, try to upload file
+			} else {
+			    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+			        //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+			    } else {
+			        echo "Sorry, there was an error uploading your file.";
+			    }
+			}
+
+			$img = $_POST["baseImg"];
+			$baseImage = imagecreatefrompng("baseImages/$img");
+			$encryptedImage = imagecreatefrompng($target_file);
+			$plaintext = imageDecrypt($baseImage,$encryptedImage);
+		?>
+		
+		<div id="results">
+			<h2>Decryption Successful!</h2>
+			Decryption of image encrypted message: <br><pre><?php echo "$plaintext"; ?> </pre><br>
+			Your uploaded image:<br>
+			<?php
+				echo "<img src=",$target_file,"> ";
+			?>
+
+
+		</div>
+	</div>
 
 </body>
 </html>

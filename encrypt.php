@@ -66,19 +66,46 @@
 		}
 
 	?>
+	<title>Image Based Encryption</title>
+	<link rel="stylesheet" type="text/css" href="website-stylesheet.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>				<script src="/js/ajaxupload.js" type="text/javascript"></script>
+	<script src="website-scripts.js"></script>
 
 </head>
 <body>
 
-Your message to encrypt is: <?php $msg = $_POST["msgEncrypt"]; echo $msg; ?><br>
-<?php 
-	$img = $_POST["baseImg"];
-	$baseImage = imagecreatefrompng("$img");
-	$newImage = imageEncrypt($baseImage,$msg);
-	imagepng($newImage,"images/encryptedimage.png");
-?>
-<a href="images/encryptedimage.png" download="encryptedimage">Download your encrypted image</a>
-<a href="home.php">Return home</a>
+	<div id="header">
+			<div id="banner">Image Encrypt</div>
+
+			<div id="menu">
+				<ul>
+					<a href="home.php"><li>Home</li></a>
+					<a href="about.html"><li>About</li></a>
+					<a href="contact.html"><li>Contact</li></a>
+				</ul>
+			</div>
+	</div>
+
+	<div id="body">
+		<div id="results">
+			<h2>Encryption Successful!</h2>
+
+			<div id="select">
+				<a href="images/encryptedimage.png" download="encryptedimage"><div>Download Encrypted Image</div></a>
+				
+			</div>
+			<br>
+			Your message:<br> <pre><?php $msg = $_POST["msgEncrypt"]; echo $msg; ?></pre><br>
+			<?php 
+				$img = $_POST["baseImg"];
+				$baseImage = imagecreatefrompng("baseImages/$img");
+				$newImage = imageEncrypt($baseImage,$msg);
+				imagepng($newImage,"images/encryptedimage.png");
+			?>
+
+		</div>
+
+	</div>
 
 </body>
 </html>
