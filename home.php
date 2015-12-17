@@ -4,7 +4,8 @@
 	<head>
 		<title>Image Based Encryption</title>
 		<link rel="stylesheet" type="text/css" href="website-stylesheet.css">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>		
+		<script src="/js/ajaxupload.js" type="text/javascript"></script>
 		<script src="website-scripts.js"></script>
 		<?php
 
@@ -46,17 +47,19 @@
 					<div class="form">
 						<form action="encrypt.php" method="post">
 							Message to Encrypt: <br><textarea name="msgEncrypt" rows="4" cols="50"></textarea><br>
-							Select base image: <select name="baseImg">
+							Select base image: <select name="baseImg" id="encrypt-select">
+								<option selected disabled hidden value=''></option>
 								<option value="White_Background.png">Plain White Background</option>
 								<option value="Eiffel_Tower.png">Eiffel Tower</option>
 								<option value="Manhattan.png">Manhattan</option>
 								<option value="Mona_Lisa.png">Mona Lisa</option>
 							</select><br>
+							
 							<input type="submit"value="Encrypt Image" name="submit">
 						</form>
 					</div>
 					<div class="preview">
-						<img src="" id="preview-image">
+						<img src="" id="encrypt-preview">
 					</div>
 				</div>
 				<div class="body-options" id="body-decrypt">
@@ -70,7 +73,8 @@
 					<div class="form">
 						<form action="decrypt.php" method="post" enctype="multipart/form-data">
 							Image to Decrypt: <input type="file" id="fileToUpload" name="fileToUpload"><br>
-							Select base image: <select name="baseImg">
+							Select base image: <select name="baseImg" id="decrypt-select">
+								<option selected disabled hidden value=''></option>
 								<option value="White_Background.png">Plain White Background</option>
 								<option value="Eiffel_Tower.png">Eiffel Tower</option>
 								<option value="Manhattan.png">Manhattan</option>
@@ -80,7 +84,7 @@
 						</form>
 					</div>
 					<div class="preview">
-						<img src="" id="preview-image">
+						<img src="" id="decrypt-preview">
 					</div>
 
 				</div>

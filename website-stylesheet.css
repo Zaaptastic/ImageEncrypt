@@ -99,10 +99,8 @@ body{
 }
 
 
-#preview-image{
-	padding-top: 50px;
-	height:500px;
-	width:400px;
+.preview img{
+	padding-top: 20px;
 }
 
 
