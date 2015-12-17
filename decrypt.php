@@ -11,8 +11,12 @@
 			for ($i = 0; $i < $msglen; $i++){
 				$temp = "";
 				for ($j = 0; $j < 7; $j++){
-					$temp[] .= $bin[$binIndex];
-					$binIndex++;
+					if ($binIndex >= strlen($bin)){
+						$temp[] .= "0";
+					}else{
+						$temp[] .= $bin[$binIndex];
+						$binIndex++;
+					}
 				}
 				$temp = implode("", $temp);
 				$simplifiedBin[] = $temp;
@@ -124,7 +128,7 @@
 <?php
 	echo "<a href=",$target_file,"> Your uploaded image </a> <br>";
 ?>
-Decryption of image encrypted message: <?php echo "$plaintext"; ?> <br>
+Decryption of image encrypted message: <br><pre><?php echo "$plaintext"; ?> </pre><br>
 <a href="home.php">Return home</a>
 
 </body>

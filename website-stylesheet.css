@@ -1,0 +1,117 @@
+body{
+	font-family: arial;
+	background: lightgray;
+	color: black;
+	margin:0;
+	padding:0;
+	overflow-x: hidden;
+}
+
+
+
+#header{
+	background: #3366cc;
+}
+
+#banner{
+	text-align: center;
+	height: 100px;
+	background: lightgray;
+}
+
+#menu{
+	text-align: center;
+}
+
+#current li{
+	background:lightgray;
+	color: black;
+}
+
+#menu ul{
+	list-style: none;
+	padding-left: 0;
+	padding-bottom: 10px;
+}
+
+#menu a{
+	text-decoration: none;
+	color: white;
+}
+
+#menu li{
+	display: inline;
+	list-style-type: none;
+	padding: 20px;
+}
+
+#menu li:hover{
+	background: lightgray;
+	color:black;
+}
+
+#select{
+	text-align: center;
+	color: white;
+}
+
+#select div{
+	display: inline-block;
+	padding: 10px 20px;
+	margin: 5px;
+	border:2px solid #3366cc;
+	background: #3366cc;
+}
+
+#select div:hover{
+	background: lightgray;
+	border-color: black;
+	color: black;
+}
+
+
+.body-options{
+	position: absolute;
+	display:table-cell;
+	width: 80%;
+	padding: 20px 10%;
+	text-align: center;
+}
+
+#body-decrypt{
+	//top:-920px;
+}
+
+.body-description{
+}
+
+.body-description h2{
+	letter-spacing: 2px;
+}
+
+#body-encrypt{
+	left: 10px;
+}
+
+#body-decrypt{
+	left:100%;
+	display:none;
+}
+
+
+#preview-image{
+	padding-top: 50px;
+	height:500px;
+	width:400px;
+}
+
+
+
+#footer{
+	background: #3366cc;
+	text-align: center;
+	height: 100px;
+	padding-top: 20px;
+	color: white;
+	width:100%;
+}
