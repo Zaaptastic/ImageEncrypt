@@ -9,14 +9,21 @@ body{
 
 
 
+
 #header{
 	background: #3366cc;
 }
 
 #banner{
 	text-align: center;
-	height: 100px;
 	background: lightgray;
+	height: 130px;
+}
+
+#banner img{
+	margin-top: 20px;
+	content:url("banner3.png");
+	vertical-align: center;
 }
 
 #menu{
@@ -72,6 +79,7 @@ body{
 	background: lightgray;
 	border-color: black;
 	color: black;
+	cursor: pointer;
 }
 
 
@@ -105,7 +113,7 @@ body{
 
 
 .preview img{
-	padding-top: 20px;
+	margin-top: 20px;
 }
 
 
@@ -127,11 +135,10 @@ pre{
 	display:inline-block;
 }
 
-#footer{
-	background: #3366cc;
+.body-info{
+	margin: 5% 10%;
+}
+
+#contact-info{
 	text-align: center;
-	height: 100px;
-	padding-top: 20px;
-	color: white;
-	width:100%;
 }

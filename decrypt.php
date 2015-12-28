@@ -57,7 +57,7 @@
 
 
 				if ($x >7 && substr($extractedBin,0,7) == "1111111"){
-					return "Invalid base image provided - Please select proper base image";
+					return null;
 				}
 			}
 
@@ -93,7 +93,9 @@
 <body>
 
 	<div id="header">
-			<div id="banner">Image Encrypt</div>
+			<div id="banner">
+				<img src="">
+			</div>
 
 			<div id="menu">
 				<ul>
@@ -110,6 +112,7 @@
 			$target_dir = "uploads/";
 			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 			$uploadOk = 1;
+			$plaintext = null;
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 			// Check if image file is a actual image or fake image
 			if(isset($_POST["submit"])) {
@@ -123,34 +126,51 @@
 			    }
 			}
 			if($imageFileType != "png") {
-		    	echo "Sorry, only PNG files are allowed.";
 		    	$uploadOk = 0;
 			}
 			if ($uploadOk == 0) {
-		    echo "Sorry, your file was not uploaded.";
 			// if everything is ok, try to upload file
 			} else {
 			    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-			        //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+			        
+
+					$img = $_POST["baseImg"];
+					$baseImage = imagecreatefrompng("baseImages/$img");
+					$encryptedImage = imagecreatefrompng($target_file);
+					$plaintext = imageDecrypt($baseImage,$encryptedImage);
 			    } else {
-			        echo "Sorry, there was an error uploading your file.";
+			    	$plaintext = null;
 			    }
 			}
-
-			$img = $_POST["baseImg"];
-			$baseImage = imagecreatefrompng("baseImages/$img");
-			$encryptedImage = imagecreatefrompng($target_file);
-			$plaintext = imageDecrypt($baseImage,$encryptedImage);
 		?>
 		
 		<div id="results">
+			<?php if($plaintext != null){ ?>
 			<h2>Decryption Successful!</h2>
+			<div id="select">
+				<a href="home.php"><div>Return Home</div></a>
+			</div><br>
 			Decryption of image encrypted message: <br><pre><?php echo "$plaintext"; ?> </pre><br>
-			Your uploaded image:<br>
-			<?php
-				echo "<img src=",$target_file,"> ";
+			
+			<?php 
+				}else{
 			?>
+			<h2>Decryption Unsuccessful...</h2>
+			Please ensure you are uploading a PNG image and have selected the correct base image.<br><br>
 
+			<div id="select">
+				<a href="home.php"><div>Try Again</div></a>
+			</div>
+			<br>
+
+			<?php 
+				}
+				if ($uploadOk == 1){
+					echo "Your uploaded image:<br>";
+					echo "<img src=",$target_file,"> ";
+				}
+
+			?>
 
 		</div>
 	</div>

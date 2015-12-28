@@ -24,9 +24,33 @@ var main = function(){
 	});
 };
 
+
+
 $(document).ready(
 		function(){
 			$('#encrypt-preview').attr("src","baseImages/Preview.png");
-			$('#decrypt-preview').attr("src","baseImages/Preview.png")
+			$('#decrypt-preview').attr("src","baseImages/Preview.png");
+			/* 
+
+			var originalHTML = $('.body-info').html();
+			var toHTML = $('.body-info').html().replace(/\S/g,function(){
+				return Math.round(Math.random());
+			});
+			$('.body-info').html(toHTML);
+			var time = 10;
+			var count = 100;
+			for (var i=0; i < 100; i++){
+				setTimeout(function(){
+					var toHTML = $('.body-info').html().replace(/\S/g,function(){
+						return Math.round(Math.random());
+					});
+					$('.body-info').html(toHTML);
+									//alert('once');
+				},time);
+				time += 5;
+			};
+			setTimeout(function(){$('.body-info').html(originalHTML);},510);
+			*/
+			
 		});
 $(document).ready(main);

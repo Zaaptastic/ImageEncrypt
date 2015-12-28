@@ -16,7 +16,9 @@
 	<body>
 
 		<div id="header">
-			<div id="banner">Image Encrypt</div>
+			<div id="banner">
+				<img src="">
+			</div>
 
 			<div id="menu">
 				<ul>
@@ -28,12 +30,23 @@
 		</div>
 
 		<div id="body">
+			<div class="body-info" id="what">
+				<h2>What is Image Encrypt?</h2>
+				Image Encrypt is a proof-of-concept web application based on modern image <a href="https://en.wikipedia.org/wiki/Steganography">Steganography</a>. It is a method of concealing a message within another file such that it is not visible in plain sight, but is easily "deciphered" upon closer examination. Thus, it differs from traditional encryption protocols in that it is not obvious that an encrypted message is being sent, however once the gig is up, the message is not as challenging to decipher. Traditionally, disadvantages of various ciphers such as this can be compensated by combining multiple ciphers together. For example, by first encoding a message using a more secure encryption, such as the <a href="https://en.wikipedia.org/wiki/Hill_cipher">Hill Cipher</a>, and then encoding the encrypted message using steganography, you can get the "best of both worlds", so to speak. The resulting encrypted file is both not obviously encrypted in plain sight and is still difficult to crack.
+			</div>
+
+			<div class="body-info" id="how">
+				<h2>How does Image Encrypt work?</h2>
+				Image Encrypt encodes information in messages by manipulating pixel colors in PNG images. Pixel colors are assigned unique values, however the human eye typically can't distinguish between subtle differences (for example, a red value of 240 and a red value of 241). Thus, by selectively making these subtle increases or decreases in pixel color values, a binary string can be contained within an image that cannot be picked up by the human eye. 
+			</div>
 			
+			<div class="body-info" id="uses">
+				<h2>What are applications of Image Encrypt?</h2>
+				The current web application is a basic one that has plenty of room to grow! The core idea, encrypting messages within other files, can be applied to virtually any file type, including MP3 music files. <br><br>
+				Security can be improved as well. Base images used can be subtlely altered similar to the encryption method to produce a unique base image. Doing this produces a "key" similar to that used in <a href="https://en.wikipedia.org/wiki/One-time_pad">One-Time Pad Encryption</a>, resulting in an uncrackable encrypted image even if it is known that the image is encrypted!
+			</div>
 
 		</div>
 
-		<div id="footer">
-
-		</div>
 	</body>
 </html>

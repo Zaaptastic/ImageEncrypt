@@ -5,7 +5,7 @@
 		<title>Image Based Encryption</title>
 		<link rel="stylesheet" type="text/css" href="website-stylesheet.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>		
-		<script src="/js/ajaxupload.js" type="text/javascript"></script>
+
 		<script src="website-scripts.js"></script>
 		<?php
 
@@ -17,7 +17,9 @@
 	<body>
 
 		<div id="header">
-			<div id="banner">Image Encrypt</div>
+			<div id="banner">
+				<img src="">
+			</div>
 
 			<div id="menu">
 				<ul>

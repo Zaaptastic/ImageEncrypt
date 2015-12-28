@@ -75,7 +75,9 @@
 <body>
 
 	<div id="header">
-			<div id="banner">Image Encrypt</div>
+			<div id="banner">
+				<img src="">
+			</div>
 
 			<div id="menu">
 				<ul>
@@ -92,7 +94,7 @@
 
 			<div id="select">
 				<a href="images/encryptedimage.png" download="encryptedimage"><div>Download Encrypted Image</div></a>
-				
+				<a href="home.php"><div>Return Home</div></a>
 			</div>
 			<br>
 			Your message:<br> <pre><?php $msg = $_POST["msgEncrypt"]; echo $msg; ?></pre><br>
